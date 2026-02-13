@@ -1,18 +1,64 @@
-# This .gitignore is appropriate for repositories deployed to GitHub Pages and using
-# a Gemfile as specified at https://github.com/github/pages-gem#conventional
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            color: #d63384;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .heart {
+            font-size: 50px;
+            color: red;
+        }
+        button {
+            background-color: #d63384;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            position: relative; /* Para permitir movimiento absoluto */
+        }
+        button:hover {
+            background-color: #b0246a;
+        }
+        #noButton {
+            position: absolute; /* Permite moverlo dinámicamente */
+        }
+    </style>
+</head>
+<body>
+    <div class="heart">❤️</div>
+    <h1>¿Quieres ser mi San Valentín?</h1>
+    <p>Hola [Nombre de la persona],</p>
+    <p>Desde el momento en que te conocí, supe que eras especial. ¿Me harías el honor de ser mi San Valentín este año? 💕</p>
+    <p>Con amor, [Tu nombre]</p>
+    <button onclick="alert('¡Sí! ¡Feliz San Valentín!')">Sí</button>
+    <button id="noButton" onmouseover="moveButton()">No</button>
 
-# Basic Jekyll gitignores (synchronize to Jekyll.gitignore)
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
-
-# Specific ignore for GitHub Pages
-# GitHub Pages will always use its own deployed version of pages-gem 
-# This means GitHub Pages will NOT use your Gemfile.lock and therefore it is
-# counterproductive to check this file into the repository.
-# Details at https://github.com/github/pages-gem/issues/768
-Gemfile.lock
+    <script>
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const maxX = window.innerWidth - button.offsetWidth - 20; // Evita salir de la pantalla
+            const maxY = window.innerHeight - button.offsetHeight - 20;
+            const randomX = Math.floor(Math.random() * maxX);
+            const randomY = Math.floor(Math.random() * maxY);
+            button.style.left = randomX + 'px';
+            button.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
